@@ -15,9 +15,9 @@
   "scripts": {
     "build": "npm run build-cjs && npm run build-es6 && rimraf umd && npm run build-umd && npm run build-min",
     "build-cjs": "rimraf lib && babel ./src -d lib",
-    "build-es6": "rimraf es6 && babel ./src -d es6 --blacklist=es6.modules",
-    "build-umd": "NODE_ENV=development webpack src/LoadingOverlay.js -o umd/LoadingOverlay.js",
-    "build-min": "NODE_ENV=production webpack src/LoadingOverlay.js -o umd/LoadingOverlay.min.js",
+    "build-es6": "rimraf es6 && babel ./src -d es6",
+    "build-umd": "webpack --mode=development src/LoadingOverlay.js -o umd/LoadingOverlay.js",
+    "build-min": "webpack --mode=production src/LoadingOverlay.js -o umd/LoadingOverlay.min.js",
     "storybook": "start-storybook -p 9001",
     "lint": "standard",
     "lint-fix": "standard --fix",
