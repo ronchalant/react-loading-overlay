@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import { css, cx } from 'emotion'
@@ -9,7 +9,8 @@ import STYLES from './styles'
 class LoadingOverlayWrapper extends Component {
   constructor (props) {
     super(props)
-    this.wrapper = React.createRef()
+    this.wrapper = createRef()
+    this.nodeRef = createRef();
     this.state = { overflowCSS: {} }
   }
 
@@ -82,6 +83,7 @@ class LoadingOverlayWrapper extends Component {
           classNames='_loading-overlay-transition'
           timeout={fadeSpeed}
           unmountOnExit
+          ref={this.nodeRef}
         >
           {state => (
             <div
@@ -89,7 +91,7 @@ class LoadingOverlayWrapper extends Component {
               className={this.cx('overlay', css(this.getStyles('overlay', state)))}
               onClick={onClick}
             >
-              <div className={this.cx('content', css(this.getStyles('content')))}>
+              <div className={this.cx('content', css(this.getStyles('content')))} ref={this.nodeRef}>
                 {spinner && (
                   typeof spinner === 'boolean'
                     ? <Spinner cx={this.cx} getStyles={this.getStyles} />
@@ -115,10 +117,10 @@ LoadingOverlayWrapper.propTypes = {
   spinner: PropTypes.oneOfType([ PropTypes.bool, PropTypes.node ]),
   text: PropTypes.node,
   styles: PropTypes.shape({
-    content: PropTypes.function,
-    overlay: PropTypes.function,
-    spinner: PropTypes.function,
-    wrapper: PropTypes.function
+    content: PropTypes.func,
+    overlay: PropTypes.func,
+    spinner: PropTypes.func,
+    wrapper: PropTypes.func
   })
 }
 

@@ -2,6 +2,7 @@
   "name": "react-loading-overlay",
   "version": "1.0.1",
   "description": "Loading overlays with fade, spinner, message support.",
+  "licence": "MIT",
   "keywords": [
     "react",
     "loading",
@@ -20,7 +21,8 @@
     "storybook": "start-storybook -p 9001",
     "lint": "standard",
     "lint-fix": "standard --fix",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,7 @@
   "dependencies": {
     "emotion": "^10.0.1",
     "prop-types": "^15.6.2",
-    "react-transition-group": "^2.5.0"
+    "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -54,9 +56,9 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "jest": "^23.6.0",
-    "react": "^16.6.3",
+    "react": "^17.0.2",
     "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.6.3",
+    "react-dom": "^17.0.2",
     "react-testing-library": "^5.3.1",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.2",
@@ -66,8 +68,8 @@
     "webpack-cli": "^3.1.2"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0",
-    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0"
+    "react": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0 || ^17.0",
+    "react-dom": "^0.14 || ^15.0.0-rc || ^15.0 || ^16.0.0 || ^16.0 || ^17.0"
   },
   "standard": {
     "parser": "babel-eslint"
